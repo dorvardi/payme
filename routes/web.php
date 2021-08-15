@@ -20,8 +20,13 @@ use App\Http\Controllers\SalesFormController;
 
 Route::get('/sales', [SalesFormController::class, 'createForm']);
 
+
 Route::post('/sales', [SalesFormController::class, 'sendFormData'])->name('sales.store');
 
 Route::get('/sales-table', [SalesFormController::class, 'getSalesData']);
+
+Route::group(['middleware' => 'web'], function () {
+    Route::get('api/documentation', '\L5Swagger\Http\Controllers\SwaggerController@api')->name('l5swagger.api');
+});
 
 

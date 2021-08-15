@@ -10,6 +10,30 @@ use Carbon\Carbon;
 use DB;
 use Config;
 
+/**
+ * @OA\Post(
+ * path="/sales",
+ * summary="send to seller",
+ * description="send product details to seller",
+ * tags={"sales"},
+ * @OA\RequestBody(
+ *    required=true,
+ *    description="Pass product details",
+ *    @OA\JsonContent(
+ *       required={"productName","price", "currency"},
+ *       @OA\Property(property="productName", type="string", example="car"),
+ *       @OA\Property(property="price", type="integer", example="1234"),
+ *       @OA\Property(property="currency", type="string", example="ILS"),
+ *    ),
+ * ),
+ * @OA\Response(
+ *    response=200,
+ *    description="Successful operation",
+ *    @OA\JsonContent()
+ *     )
+ * )
+ */
+
 class SalesFormController extends Controller
 {
 

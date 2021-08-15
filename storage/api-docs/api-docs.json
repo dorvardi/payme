@@ -1,0 +1,61 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Your super  ApplicationAPI",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/sales": {
+            "post": {
+                "tags": [
+                    "sales"
+                ],
+                "summary": "send to seller",
+                "description": "send product details to seller",
+                "requestBody": {
+                    "description": "Pass product details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "productName",
+                                    "price",
+                                    "currency"
+                                ],
+                                "properties": {
+                                    "productName": {
+                                        "type": "string",
+                                        "example": "car"
+                                    },
+                                    "price": {
+                                        "type": "integer",
+                                        "example": "1234"
+                                    },
+                                    "currency": {
+                                        "type": "string",
+                                        "example": "ILS"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
